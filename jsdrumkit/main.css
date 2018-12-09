@@ -1,0 +1,43 @@
+.wrapper {
+    background:no-repeat center/100% url("bg.jpg");
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+}
+
+.drum {
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+}
+
+.key {
+    font-size: 2em;
+    display: flex;
+    border: 1px solid #000;
+    width: 2.5em;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    margin: 0.6em;
+    padding: 0.6em;
+}
+
+.letter {
+    color: #fff;
+}
+
+.title {
+    color: orange;
+    font-size: 0.5em;
+}
