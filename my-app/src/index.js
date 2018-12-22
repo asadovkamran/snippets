@@ -94,12 +94,14 @@ class Game extends React.Component {
                   <button onClick={()=>this.jumpTo(move)}>{desc}</button>
                     <span>row: {coordinates[move][0] + 1}; column: {coordinates[move][1] + 1}</span>
                   </li>
-          )
+          );
       });
 
       let status;
       if (winner) {
           status = 'Winner: ' + winner.player;
+      }else if (current.squares.indexOf(null) === -1) {
+          status = 'Draw.';
       } else {
           status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
       }
