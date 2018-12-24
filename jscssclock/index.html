@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" />
+  <link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" />
+  <title>CodePen - CSS + JS clock</title>
+      <style>
+      * {
+  margin: 0;
+}
+
+body {
+  font-size: 13px;
+}
+
+.container {
+  background-image: url('http://cdn.akamai.steamstatic.com/steamcommunity/public/images/items/298520/47f1e70bd90db25a97f3b761b07764f7f947287e.jpg');
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  flex-flow: column;
+}
+
+.clock {
+  width: 360px;
+  height: 360px;
+  background: transparent;
+  border: 2em solid #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center-wrapper {
+  position: relative;
+}
+
+.center {
+  width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #fff;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.arrow {
+  width: 0.7em;
+  height: 150px;
+  background: #fff;
+  position: absolute;
+  top: -150px;
+}
+
+.hours .arrow {
+  height: 75px;
+  top: -75px;
+}
+
+.minutes .arrow {
+  height: 125px;
+  top: -125px;
+}
+
+.time {
+  color: #fff;
+  font-size: 5em;
+  margin-top: 1em;
+}
+    </style>
+
+</head>
+
+<body translate="no" >
+
+  <div class="container">
+  <div class="clock">
+    <div class="center-wrapper">
+      <div class="center seconds" data-role='seconds'>
+        <div class="arrow"></div>
+      </div>
+      <div class="center minutes" data-role='minutes'>
+        <div class="arrow"></div>
+      </div>
+      <div class="center hours" data-role='hours'>
+        <div class="arrow"></div>
+      </div>
+    </div>
+  </div>
+  <div class="time" data-role='time-display'></div>
+</div>
+
+    <script >
+      var secondsArrow = document.querySelector('[data-role=seconds]');
+var minutesArrow = document.querySelector('[data-role=minutes]');
+var hoursArrow = document.querySelector('[data-role=hours]');
+var timeDisplay = document.querySelector('[data-role=time-display]');
+
+drawArrows();
+
+function drawArrows() {
+  var date = new Date();
+  var currentSecondsDeg = date.getSeconds() * 360 / 60;
+  var currentMinutesDeg = date.getMinutes() * 360 / 60;
+  var currentHoursDeg = date.getHours() * 360 / 12;
+  secondsArrow.style.transform = 'rotate(' + currentSecondsDeg + 'deg)';
+  minutesArrow.style.transform = 'rotate(' + currentMinutesDeg + 'deg)';
+  hoursArrow.style.transform = 'rotate(' + currentHoursDeg + 'deg)';
+  timeDisplay.innerHTML = date.toLocaleTimeString();
+}
+
+setInterval(drawArrows, 1000);
+    </script>
+
+
+
+  
+  
+
+  <script src="https://static.codepen.io/assets/editor/live/css_reload-5619dc0905a68b2e6298901de54f73cefe4e079f65a75406858d92924b4938bf.js"></script>
+</body>
+
+</html>
+ 
